@@ -1,6 +1,7 @@
 package ec.edu.espe.examenllumiquinga.examenllumiquinga.dao.service;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public class AlumnoService {
         }
 
    
-        if (nuevoAlumno.getFechaNacimiento() == null || nuevoAlumno.getFechaNacimiento().isAfter(LocalDate.now())) {
+        if (nuevoAlumno.getFechaNacimiento() == null || nuevoAlumno.getFechaNacimiento().after(new Date())) {
             throw new CreacionExeption("La fecha de nacimiento no es válida. No se puede crear el alumno.");
         }
 
