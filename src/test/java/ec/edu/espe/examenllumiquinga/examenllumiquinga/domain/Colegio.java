@@ -89,5 +89,11 @@ public class Colegio {
         return "Colegio [codColegio=" + codColegio + ", nombre=" + nombre + ", alumnos=" + alumnos + "]";
     }
 
+
+
+    public Integer getId() {
+        return null;
+    }
+
     
 }

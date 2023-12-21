@@ -9,12 +9,12 @@ import ec.edu.espe.examenllumiquinga.examenllumiquinga.dao.ColegioRepository;
 import ec.edu.espe.examenllumiquinga.examenllumiquinga.domain.Colegio;
 
 @Service
+@Transactional
 public class ColegioService {
 
     public static final String TIPO_CLIENTE_PERSONA = "NAT";
     private final ColegioRepository colegioRepository;
-   /// private final TipoRelacionRepository tipoRelacionRepository;
-
+   
     public  ColegioService(ColegioRepository colegioRepository ) {
         this.colegioRepository = colegioRepository;
       
@@ -23,7 +23,7 @@ public class ColegioService {
     @Transactional
     public Colegio crearColegio(Colegio nuevoColegio) {
     
-     // Validación de parámetros antes de la creación
+    
      if (nuevoColegio == null || nuevoColegio.getNombre() == null || nuevoColegio.getNombre().isEmpty()) {
         throw new CreacionExeption("El nombre del colegio es obligatorio para la creación.");
     }
@@ -38,7 +38,7 @@ public class ColegioService {
 
     
     public List<Colegio> obtenerColegiosPorNombre(String patronNombre) {
-        // Validación de parámetros antes de la búsqueda
+      
         if (patronNombre == null || patronNombre.isEmpty()) {
             throw new CreacionExeption("El patrón de nombre no puede estar vacío.");
         }
